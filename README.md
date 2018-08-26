@@ -58,14 +58,21 @@ The response in JSON:
 {"isDelayed":true}
 ```
 
+# Core components
+* class Application - to boot the spring boot based application
+* class LineService - core class with "business logic" to join and filter the data from different repositories
+* package "domain" - models for data done using Immutables library for convenience, it's a weak domain, logic is simply in the service, so no DDD approach
+* package "repository" - classes to manage access to data + mappings from CSV format (done directly without sophisticated csv-library)
+* package "resource" - to expose the service under REST API
 
 # Assumptions
 
 As "web API" I assumed "Rest API".
 
-As "Returns the vehicles for a given time and coordinates" I assumed "Returns the line names for a given time and coordinates".
+As "Returns the vehicles for ..." I assumed "Returns the Lines for for...".
 
-All the identifiers assumed to be primitive integer. Of course for real data it's quite bad assumption, but OK for this limited task and provided dataset.
+All the identifiers assumed to be primitive integer.   
+Of course for real data it's quite bad assumption, but OK for this limited task and provided dataset.
 
 
 ## Assumptions about input data
